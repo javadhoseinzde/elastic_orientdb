@@ -1,0 +1,34 @@
+version : "3.7"
+
+services:
+
+  app:
+    build: './app'
+    container_name: 'app-paya'
+    restart: 'always'
+    expose:
+      - '8000'
+    volumes:
+      - type: 'bind'
+        source: './volumes/mysite'
+        target: '/mysite'
+
+
+  nginx:
+    build: './nginx'
+    container_name: 'nginx-paya'
+    restart: 'always'
+    ports:
+      - '5007:5007'
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezne:ro"
+
+      - type: 'bind'
+        source: './volumes/static'
+        target: '/mysite/static'
+
+
+networks:
+  app-network:
+    driver: bridge
