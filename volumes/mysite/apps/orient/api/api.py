@@ -5,8 +5,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from .orient_connector import OrientCrud
 from apps.orient.models import OrientHost
+from drf_spectacular.utils import extend_schema
+
 
 class OrientApiView(APIView):
+    @extend_schema(
+        request=OrientSerializer,
+        responses={204: None},
+        methods=["POST"]
+    )
     def post(self, request):
         serializer = OrientSerializer(data=request.data)
         if serializer.is_valid():
@@ -27,7 +34,7 @@ class OrientApiView(APIView):
 
 
 class CreateDbApiView(APIView):
-    
+
     def post(self, request):
         print("valid0")
         serializer = CreateDbSerializer(data=request.data)

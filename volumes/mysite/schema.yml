@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: Your Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /elastic:
+    post:
+      operationId: elastic_create
+      tags:
+      - elastic
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/connect:
+    post:
+      operationId: orient_connect_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/create/db:
+    post:
+      operationId: orient_create_db_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/create/table:
+    post:
+      operationId: orient_create_table_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/delete/db:
+    post:
+      operationId: orient_delete_db_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/delete/table:
+    post:
+      operationId: orient_delete_table_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/insert/table:
+    post:
+      operationId: orient_insert_table_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/table/list:
+    post:
+      operationId: orient_table_list_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/table/row:
+    post:
+      operationId: orient_table_row_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /orient/update/row:
+    post:
+      operationId: orient_update_row_create
+      tags:
+      - orient
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5@@4af!#hee+!rgk71$4ne!dsd8cb_2ck21swjt3&snm&^nq1#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["app"]
+ALLOWED_HOSTS = ["app", "127.0.0.1"]
 
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:5007']
 
@@ -37,6 +37,10 @@ LOCAL_APPS = [
     "apps.orient.apps.OrientConfig"
 ]
 
+THIRDY_APP = [
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     *LOCAL_APPS,
+    *THIRDY_APP,
 ]
 
 MIDDLEWARE = [
@@ -130,3 +135,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+}
